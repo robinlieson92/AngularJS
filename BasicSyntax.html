@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE HTML>
+<html>
+    <head></head>
+    <body ng-app>
+        <!-- Your code here -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js" type="text/javascript"></script>
+    
+    	<b><i>Example Data Binding</i></b>
+        <h3 ng-init="name='M Dwikuntobayu'" >
+    		Hello {{ name }}
+    		<span ng-bind="name"></span>
+		</h3><hr>
+
+		<b><i>Example Initialize Value - String</i></b>	
+		<h3 data-ng-init="first='Robin';last='Lieson'" >
+    		Fullname : {{ first }} {{ last }}
+		</h3><hr>
+
+		<b><i>Example Initialize Value - Numeric</i></b>
+		<h3 data-ng-init="quantity=7;price=100" >
+    		Total Price : Rp. {{ quantity * price }}
+		</h3><hr>
+
+		<b><i>Example Initialize Value - Array</i></b>
+		<p  data-ng-init="brands=['Tisaba', 'Palaron', 'Sungsang']" >
+		    Brand One : {{ brands[0] }} <br />
+		    Brand Two : {{ brands[1] }} <br />
+		    Brand Three : {{ brands[2] }}
+		</p><hr>
+
+		<b><i>Example Conditional Statement_ng-if</i></b>
+		<p data-ng-init="brands2=['Tisaba', 'Palaron', 'Sungsang']" >
+		    Brand One : {{ brands2[0] }} <br />
+		    <span ng-if="brands2[0] == 'Palaron'">Brand Two : {{ brands2[0] }} <br /><span>
+		    Brand Three : {{ brands2[2] }}
+		</p><hr>
+
+		<b><i>Example Conditional Statement_ng-swith</i></b>
+		<p data-ng-init="quantity=7;price=100">
+			Total Price : Rp. {{ total = quantity * price}} <br>
+			Description :
+
+			<span ng-switch on="total">
+				<b ng-switch-when="600">Cheap</b>
+				<b ng-switch-when="700">Fair Enough</b>
+				<b ng-switch-when="800">Expensive</b>
+				<b ng-switch-default>Too Much</b>
+			</span>
+		</p><hr>
+
+		<b><i>Example Looping</i></b>
+		<p data-ng-init="brands3=[{name:'Tisaba', price:700},{name:'Palaron', price:800},{name:'Sungsang', price:900}]">
+			<span ng-repeat="brand in brands3 track by $index">
+			No : {{$index}}. Brand : {{brand.name}}, Price : Rp. {{brand.price}}<br /> 
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - Global</i></b>
+		<p>
+			<!-- filter all object that contain '7' character -->
+			<span ng-repeat="brand in brands3 | filter:'7' track by $index">
+				No : {{$index}}. Brand : {{brand.name}}, Price : Rp. {{brand.price}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - Spesific Object</i></b>
+		<p>
+			<!-- filter object name that contain 't' character -->
+			<span ng-repeat="brand in brands3 | filter:{name:'t'} track by $index">
+				No : {{$index}}. Brand : {{brand.name}}, Price : Rp. {{brand.price}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - Currency</i></b>
+		<p>
+			<span ng-repeat="brand in brands3 track by $index">
+				No : {{$index}}. Brand : {{brand.name}}, Price : {{brand.price | currency:"Rp. "}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - number</i></b>
+		<p data-ng-init="brands4=[{name:'Tisaba', price:70000},{name:'Palaron', price:800000},{name:'Sungsang', price:9000000}]">
+			<span ng-repeat="brand in brands4 track by $index">
+				No : {{$index}}. Brand : {{brand.name}}, Price : {{brand.price | number }}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - date</i></b>
+		<!-- 1645492687377 -->
+		<span>{{ 1645492687377 | date:'yyyy-mm-dd'}}</span>
+		<hr>
+
+		<b><i>Example Filter - json</i></b>
+		<p>
+			<!-- will return json with two spaces -->
+			<span>{{brands4|json:2}} </span>
+		</p><hr>
+
+		<b><i>Example Filter - lowercase</i></b>
+		<p>
+			<span ng-repeat="brand in brands4 track by $index">
+				No : {{$index}}. Brand : {{brand.name | lowercase}}, Price : {{brand.price}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - uppercase</i></b>
+		<p>
+			<span ng-repeat="brand in brands4 track by $index">
+				No : {{$index}}. Brand : {{brand.name | uppercase}}, Price : {{brand.price}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Filter - limitTo</i></b>
+		<p>
+			<!-- will return two object from index one -->
+			<span>{{brands4|limitTo:2:1}} </span>
+		</p><hr>
+
+		<b><i>Example Filter - orderBy</i></b>
+		<p>
+			<span ng-repeat="brand in brands4 | orderBy:'-name' track by $index">
+				No : {{$index}}. Brand : {{brand.name}}, Price : {{brand.price}}<br />
+			</span>
+		</p><hr>
+
+		<b><i>Example Click Action</i></b>
+		<p ng-click="name='AngularJs'" data-ng-init="name='Click Me'">
+			<span ng-bind="name">
+			</span>
+		</p><hr>
+    </body>
+<html>
+
+
