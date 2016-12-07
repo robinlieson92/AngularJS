@@ -28,8 +28,8 @@ app.directive("loadexternal",function(){
 //example consume scope
 app.controller('ctrldirective',function($scope){
 	$scope.player = {
-		displayName: 'Butterfly',
-		level: '27',
+		displayName: 'Robin',
+		level: 'Expert',
 	};
 });
 
