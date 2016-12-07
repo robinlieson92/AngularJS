@@ -19,8 +19,44 @@ app.directive('hellodirective',function(){
 });
 
 //example partial page
-app.directive('loadExternal',function(){
+app.directive("loadexternal",function(){
 	return {
 		templateUrl:"detail-user.html"
+	};
+});
+
+//example consume scope
+app.controller('ctrldirective',function($scope){
+	$scope.player = {
+		displayName: 'Butterfly',
+		level: '27',
+	};
+});
+
+app.directive('getplayer',function(){
+	return {
+		template: 'Nama Player: <span ng-bind="player.displayName"></span><br />Level: <span ng-bind="player.level"></span>'
+	};
+});
+
+//example bind element
+app.controller('ctrldirective2',function($scope){
+	$scope.playerOne = {
+		displayName: 'Butterfly',
+		level: '27'
+	}
+	$scope.playerTwo = {
+		displayName: 'Genos',
+		level: 'S'
+	}
+});
+
+app.directive('getplayer2',function(){
+	return {
+		restriction: 'E',
+		scope: {
+			selectscope: '='
+		},
+		template: 'Nama Player: <span ng-bind="selectscope.displayName"></span><br />Level: <span ng-bind="selectscope.level"></span>'
 	};
 });
