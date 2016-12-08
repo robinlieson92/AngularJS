@@ -1,8 +1,8 @@
 var http_module = angular.module('httpExample', []);
 
 http_module.controller('httpBycycle', function($scope, $http) {
-    var auth = window.btoa("dwikuntobayu" + ':' + "12345678");
-    var base_url = 'http://localhost:3003/';
+    // var auth = window.btoa("dwikuntobayu" + ':' + "12345678");
+    var base_url = 'http://localhost:8000/';
     $scope.bycycle = {};
 
     function httpRequest(methodType, subDomain, inputData) {
@@ -10,7 +10,7 @@ http_module.controller('httpBycycle', function($scope, $http) {
             method: methodType,
             url: base_url + subDomain,
             headers: {
-                'Authorization' : 'Basic ' + auth,
+                // 'Authorization' : 'Basic ' + auth,
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json; charset=UTF-8',
                 'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
