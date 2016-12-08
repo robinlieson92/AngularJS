@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div ng-app="othermodule" ng-controller="othercontroller">
+    	<h1>This page will retrieve token data from cookies</h1>
+    	<p ng-bind="token"></p>
+    	<p ng-click="removecookies()"></p>
+	</div>
+	<script src="../angular.min.js" ></script>
+	<script src="../AngularRoute/angular-route.js" ></script>
+	<script src="angular-cookies.js" ></script>
+	<script src="module-file-two.js" ></script>
+</body>
+</html>
