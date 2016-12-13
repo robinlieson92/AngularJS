@@ -12,12 +12,12 @@ app.factory('Bycycle', function($resource) {
         return {
             method : methodType,
             url : base_url + subDomain,
-            isArray : false,
+            isArray : true,
             headers : {
                 //'Authorization' : 'Basic ' + auth,
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json; charset=UTF-8',
-                'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
+                // 'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
             },
             params : {
                 id : '@id',
@@ -40,6 +40,7 @@ app.factory('Bycycle', function($resource) {
 var app_bycycle = angular.module('bycycle_module', ['module_crudapi']);
 app_bycycle.controller('bycycle_controller', function($scope, Bycycle) {
     $scope.bycycle = {};
+    console.log($scope.bycycle);
     $scope.save_bycycle = function() {
         $scope.bycycles = Bycycle.save({
             name : $scope.bycycle.name,
