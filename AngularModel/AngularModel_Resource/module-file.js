@@ -5,8 +5,8 @@ app.factory('Bycycle', function($resource) {
     //fails convert from ascii to utf
     //use window.btoa() , this method will Creates a base-64 encoded ASCII string from a "string" of binary data
     //because in api server only know this encode (if send via header)
-    var auth = window.btoa("dwikuntobayu" + ':' + "12345678");
-    var base_url = 'http://localhost:3003/';
+    // var auth = window.btoa("dwikuntobayu" + ':' + "12345678");
+    var base_url = 'http://localhost:8000/';
 
     function resRequest(methodType, subDomain) {
         return {
@@ -14,7 +14,7 @@ app.factory('Bycycle', function($resource) {
             url : base_url + subDomain,
             isArray : false,
             headers : {
-                'Authorization' : 'Basic ' + auth,
+                //'Authorization' : 'Basic ' + auth,
                 'Accept' : 'application/json',
                 'Content-Type' : 'application/json; charset=UTF-8',
                 'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'

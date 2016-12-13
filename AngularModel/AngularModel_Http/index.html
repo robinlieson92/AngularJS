@@ -22,7 +22,7 @@
 			    </ul>
     		</div>
     	<div>{{ bycycles.message }}</div>
-    	<div>Name : {{ bycycles.bycycles.name }} &nbsp; Series : {{ bycycles.bycycles.series }}</div>
+    	<div>Name : {{ bycycles.name }} &nbsp; Series : {{ bycycles.series }}</div>
     		<table>
 			    <thead>
 			        <tr>
@@ -32,7 +32,7 @@
 			        </tr>
 			    </thead>
 			    <tbody style="text-align: center;">
-			        <tr ng-repeat="bycycle in bycycles.bycycles">
+			        <tr ng-repeat="bycycle in bycycles">
 			            <td>{{ bycycle.id }}</td>
 			            <td>{{ bycycle.name }}</td>
 			            <td>{{ bycycle.series }}</td>
