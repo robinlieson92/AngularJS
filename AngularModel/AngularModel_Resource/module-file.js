@@ -8,11 +8,11 @@ app.factory('Bycycle', function($resource) {
     // var auth = window.btoa("dwikuntobayu" + ':' + "12345678");
     var base_url = 'http://localhost:8000/';
 
-    function resRequest(methodType, subDomain) {
+    function resRequest(methodType, subDomain, array) {
         return {
             method : methodType,
             url : base_url + subDomain,
-            isArray : true,
+            isArray : array,
             headers : {
                 //'Authorization' : 'Basic ' + auth,
                 'Accept' : 'application/json',
@@ -28,11 +28,11 @@ app.factory('Bycycle', function($resource) {
     }
 
     return $resource('', {}, {
-        'index' : resRequest('GET', 'api/v1/bycycles'),
-        'show' : resRequest('GET', 'api/v1/bycycles/:id'),
-        'save' : resRequest('POST', 'api/v1/bycycles'),
-        'update' : resRequest('PUT', 'api/v1/bycycles/:id'),
-        'destroy' : resRequest('DELETE', 'api/v1/bycycles/:id'),
+        'index' : resRequest('GET', 'api/v1/bycycles',true),
+        'show' : resRequest('GET', 'api/v1/bycycles/:id',false),
+        'save' : resRequest('POST', 'api/v1/bycycles',false),
+        'update' : resRequest('PUT', 'api/v1/bycycles/:id',false),
+        'destroy' : resRequest('DELETE', 'api/v1/bycycles/:id',false),
     });
 });
 
